@@ -4,8 +4,8 @@ namespace DTO
 {
     public class NhanVienDTO
     {
-        public string Manv { get; set; }
-        public string Tennv { get; set; }
+        public string MaNhanVien { get; set; }
+        public string HoTen { get; set; }
         public string Gioitinh { get; set; }
         public DateTime Ngaysinh { get; set; }
         public string Diachi { get; set; }

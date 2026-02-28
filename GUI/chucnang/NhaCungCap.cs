@@ -87,8 +87,8 @@ namespace Doan1
                 {
                     tbManhacungcap.Text = "1";
                 }
-                nhaCungCapDTO.ManhaCC = tbManhacungcap.Text;
-                nhaCungCapDTO.Tennhacc = tbTennhacungcap.Text;
+                nhaCungCapDTO.MaNhaCungCap = tbManhacungcap.Text;
+                nhaCungCapDTO.TenNhaCungCap = tbTennhacungcap.Text;
                 nhaCungCapDTO.Diachi = tbDiachi.Text;
                 nhaCungCapDTO.SDT = tbSDT.Text;
                 string result = nhaCungCapBUS.Themnhacc(nhaCungCapDTO);
@@ -129,8 +129,8 @@ namespace Doan1
                 return;
             }
             NhaCungCapDTO nhaCungCapDTO = new NhaCungCapDTO();
-            nhaCungCapDTO.ManhaCC = tbManhacungcap.Text;
-            nhaCungCapDTO.Tennhacc = tbTennhacungcap.Text;
+            nhaCungCapDTO.MaNhaCungCap = tbManhacungcap.Text;
+            nhaCungCapDTO.TenNhaCungCap = tbTennhacungcap.Text;
             nhaCungCapDTO.Diachi = tbDiachi.Text;
             nhaCungCapDTO.SDT = tbSDT.Text;
             string currentTen = dgvnhacungcap.CurrentRow.Cells[1].Value.ToString();
@@ -168,7 +168,7 @@ namespace Doan1
             if (confirm == DialogResult.Yes)
             {
                 NhaCungCapDTO nhaCungCapDTO = new NhaCungCapDTO();
-                nhaCungCapDTO.ManhaCC = maNCC;
+                nhaCungCapDTO.MaNhaCungCap = maNCC;
 
                 string result = nhaCungCapBUS.Xoanhacc(nhaCungCapDTO);
                 if (result == "Xóa nhà cung cấp thành công.")

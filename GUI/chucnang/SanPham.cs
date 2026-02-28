@@ -48,8 +48,8 @@ namespace Doan1
         {
             DataTable dataTable = sanPhamBUS.getData1();
             tbMacc.DataSource = dataTable;
-            tbMacc.DisplayMember = "Tennhacc";
-            tbMacc.ValueMember = "ManhaCC";
+            tbMacc.DisplayMember = "TenNhaCungCap";
+            tbMacc.ValueMember = "MaNhaCungCap";
         }
 
         private void SanPham_Load(object sender, EventArgs e)
@@ -106,13 +106,13 @@ namespace Doan1
             {
                 tbMasp.Text = "1";
             }
-            sanPhamDTO.Masp = tbMasp.Text;
-            sanPhamDTO.Tensp = tbTensp.Text;
+            sanPhamDTO.MaSanPham = tbMasp.Text;
+            sanPhamDTO.TenSanPham = tbTensp.Text;
             sanPhamDTO.Gia = tbGia.Text;
             sanPhamDTO.Mota = tbMota.Text;
-            sanPhamDTO.Mancc = tbMacc.SelectedValue.ToString();
+            sanPhamDTO.MaNhaCungCap = tbMacc.SelectedValue.ToString();
             sanPhamDTO.SoLuong = tbSoluong.Text;
-            sanPhamDTO.Hinhanh = bytes;
+            sanPhamDTO.HinhAnh = bytes;
             string result = sanPhamBUS.Themsp(sanPhamDTO);
             if (result == "Thêm thành công")
             {
@@ -150,13 +150,13 @@ namespace Doan1
                 return;
             }
 
-            sanPhamDTO.Masp = tbMasp.Text;
-            sanPhamDTO.Tensp = tbTensp.Text;
+            sanPhamDTO.MaSanPham = tbMasp.Text;
+            sanPhamDTO.TenSanPham = tbTensp.Text;
             sanPhamDTO.Gia = tbGia.Text;
             sanPhamDTO.Mota = tbMota.Text;
-            sanPhamDTO.Mancc = tbMacc.SelectedValue.ToString();
+            sanPhamDTO.MaNhaCungCap = tbMacc.SelectedValue.ToString();
             sanPhamDTO.SoLuong = tbSoluong.Text;
-            sanPhamDTO.Hinhanh = bytes;
+            sanPhamDTO.HinhAnh = bytes;
             string result = sanPhamBUS.Suasp(sanPhamDTO);
             if (result == "Sửa thành công")
             {
@@ -179,7 +179,7 @@ namespace Doan1
                 return;
             }
             string maSp = tbMasp.Text;
-            sanPhamDTO.Masp = maSp;
+            sanPhamDTO.MaSanPham = maSp;
 
             DialogResult confirm = MessageBox.Show("Bạn có chắc chắn muốn xóa sản phẩm này không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (confirm == DialogResult.Yes)

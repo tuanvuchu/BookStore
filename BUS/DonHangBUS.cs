@@ -11,7 +11,7 @@ namespace BUS
 
         public bool ThemDonHang(int t)
         {
-           return donHangDAL.ThemDonHang(t);
+            return donHangDAL.ThemDonHang(t);
         }
         public DataTable Hien()
         {

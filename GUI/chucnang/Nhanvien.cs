@@ -102,7 +102,7 @@ namespace Doan1
                 {
                     tbMa.Text = "1";
                 }
-                nhanVienDTO.Tennv = tbTen.Text;
+                nhanVienDTO.HoTen = tbTen.Text;
                 nhanVienDTO.Gioitinh = cbGioiTinh.SelectedItem.ToString();
                 nhanVienDTO.Ngaysinh = dtNgay.Value;
                 nhanVienDTO.Diachi = tbDiachi.Text;
@@ -141,8 +141,8 @@ namespace Doan1
                 MessageBox.Show("Vui lòng chọn một nhân viên để sửa thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            nhanVienDTO.Manv = tbMa.Text;
-            nhanVienDTO.Tennv = tbTen.Text;
+            nhanVienDTO.MaNhanVien = tbMa.Text;
+            nhanVienDTO.HoTen = tbTen.Text;
             nhanVienDTO.Gioitinh = cbGioiTinh.SelectedItem.ToString();
             nhanVienDTO.Ngaysinh = dtNgay.Value;
             nhanVienDTO.Diachi = tbDiachi.Text;

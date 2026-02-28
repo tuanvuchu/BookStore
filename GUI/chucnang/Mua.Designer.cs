@@ -787,7 +787,7 @@
             // 
             // Column2
             // 
-            this.Column2.DataPropertyName = "Masp";
+            this.Column2.DataPropertyName = "MaSanPham";
             this.Column2.HeaderText = "Mã Sản Phẩm";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
@@ -795,7 +795,7 @@
             // 
             // Column1
             // 
-            this.Column1.DataPropertyName = "Tensp";
+            this.Column1.DataPropertyName = "TenSanPham";
             this.Column1.HeaderText = "Tên Sản Phẩm ";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
@@ -803,7 +803,7 @@
             // 
             // Column5
             // 
-            this.Column5.DataPropertyName = "Mancc";
+            this.Column5.DataPropertyName = "MaNhaCungCap";
             this.Column5.HeaderText = "Column5";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -835,7 +835,7 @@
             // 
             // Column12
             // 
-            this.Column12.DataPropertyName = "Hinhanh";
+            this.Column12.DataPropertyName = "HinhAnh";
             this.Column12.HeaderText = "Ảnh";
             this.Column12.Name = "Column12";
             this.Column12.ReadOnly = true;

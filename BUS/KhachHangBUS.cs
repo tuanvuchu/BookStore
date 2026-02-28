@@ -17,7 +17,7 @@ namespace BUS
         }
         public string Themhk(KhachHangDTO Them)
         {
-            //if (kiemtramatrung(Them.MaKH) > 0)
+            //if (kiemtramatrung(Them.MaKhachHang) > 0)
             //{
             //    return "Mã khách hàng đã được đăng kí.";
             //}
@@ -39,7 +39,7 @@ namespace BUS
 
         public string XoanKH(KhachHangDTO Xoa)
         {
-            if (khachHangDAL.XoaKhachHang(Xoa.MaKH))
+            if (khachHangDAL.XoaKhachHang(Xoa.MaKhachHang))
             {
                 return "Xóa khách hàng thành công.";
             }

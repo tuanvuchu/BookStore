@@ -17,7 +17,7 @@ namespace BUS
         }
         public string Themnhacc(NhaCungCapDTO Them)
         {
-            //if (kiemtramatrung(Them.ManhaCC) > 0)
+            //if (kiemtramatrung(Them.MaNhaCungCap) > 0)
             //{
             //    return "Mã nhà cung cấp đã được đăng kí.";
             //}
@@ -43,7 +43,7 @@ namespace BUS
 
         public string Xoanhacc(NhaCungCapDTO nccDTO)
         {
-            if (nhaCungCapDAL.Xoanhacc(nccDTO.ManhaCC))
+            if (nhaCungCapDAL.Xoanhacc(nccDTO.MaNhaCungCap))
             {
                 return "Xóa nhà cung cấp thành công.";
             }

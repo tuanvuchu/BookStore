@@ -37,7 +37,7 @@ namespace DAL
         {
             string sql = "SELECT TOP 5 SP.TenSanPham AS ProductName, SUM(CTDH.SoLuong) AS QtySold " +
                          "FROM ChiTietDonHang CTDH " +
-                         "JOIN SanPham SP ON CTDH.Masp = SP.Masp " +
+                         "JOIN SanPham SP ON CTDH.MaSanPham = SP.MaSanPham " +
                          "JOIN DonHang DH ON CTDH.MaDonHang = DH.MaDonHang " +
                          "WHERE DH.NgayDat >= @StartDate AND DH.NgayDat <= @EndDate " +
                          "GROUP BY SP.TenSanPham " +

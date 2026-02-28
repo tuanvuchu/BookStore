@@ -29,8 +29,8 @@ namespace Doan1
         {
             DataTable dataTable = chamCongBUS.GetData1();
             cbbnhanvien.DataSource = dataTable;
-            cbbnhanvien.DisplayMember = "Manv";
-            cbbnhanvien.ValueMember = "Manv";
+            cbbnhanvien.DisplayMember = "MaNhanVien";
+            cbbnhanvien.ValueMember = "MaNhanVien";
         }
 
         private void ChamCong_Load(object sender, EventArgs e)

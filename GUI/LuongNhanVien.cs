@@ -22,8 +22,8 @@ namespace Doan1
         {
             DataTable dataTable = luongBUS.getData1();
             cbbMaNhanVien.DataSource = dataTable;
-            cbbMaNhanVien.DisplayMember = "Manv";
-            cbbMaNhanVien.ValueMember = "Manv";
+            cbbMaNhanVien.DisplayMember = "MaNhanVien";
+            cbbMaNhanVien.ValueMember = "MaNhanVien";
         }
         void loaddgv()
         {
@@ -60,7 +60,7 @@ namespace Doan1
                 tbMaLuong.Text = "1";
             }
             nhanVienDTO.MaBangLuong = tbMaLuong.Text;
-            nhanVienDTO.Manv = cbbMaNhanVien.Text;
+            nhanVienDTO.MaNhanVien = cbbMaNhanVien.Text;
             nhanVienDTO.Luong = tbLuong.Text;
             nhanVienDTO.NgayNhanLuong = dtpngay.Value;
             string result = luongBUS.Themnv(nhanVienDTO);
@@ -100,13 +100,13 @@ namespace Doan1
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             nhanVienDTO.MaBangLuong = tbMaLuong.Text;
-            nhanVienDTO.Manv = cbbMaNhanVien.Text;
+            nhanVienDTO.MaNhanVien = cbbMaNhanVien.Text;
             nhanVienDTO.Luong = tbLuong.Text;
             nhanVienDTO.NgayNhanLuong = dtpngay.Value;
             string result = luongBUS.SuaLuong(nhanVienDTO);
             if (result == "1")
             {
-                MessageBox.Show($"Sửa thông tin lương nhân viên: {nhanVienDTO.Manv} thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Sửa thông tin lương nhân viên: {nhanVienDTO.MaNhanVien} thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dgvLuong.DataSource = luongBUS.getData();
                 ClearFields();
                 loaddgv();
@@ -120,7 +120,7 @@ namespace Doan1
         private void btxoa_Click(object sender, EventArgs e)
         {
             string maBangLuong = tbMaLuong.Text;
-            DialogResult confirm = MessageBox.Show($"Bạn có chắc chắn muốn xóa lương nhân viên: {nhanVienDTO.Manv} không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult confirm = MessageBox.Show($"Bạn có chắc chắn muốn xóa lương nhân viên: {nhanVienDTO.MaNhanVien} không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (confirm == DialogResult.Yes)
             {
                 nhanVienDTO.MaBangLuong = maBangLuong;

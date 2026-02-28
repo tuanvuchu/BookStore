@@ -14,7 +14,7 @@ namespace DAL
         }
         public DataTable getData1()
         {
-            string sql = "select Manv from NhanVien";
+            string sql = "select MaNhanVien from NhanVien";
             return csdl.GetData(sql);
         }
 
@@ -30,7 +30,7 @@ namespace DAL
         public bool ThemLuong(NhanVienDTO nv)
         {
             int maBangLuongMoi = LayMaLuongTiepTheo();
-            string sql = string.Format("INSERT INTO BangLuong VALUES ('{0}', '{1}', '{2}', '{3}')", maBangLuongMoi, nv.Manv, nv.Luong, nv.NgayNhanLuong.ToString("yyyy-MM-dd"));
+            string sql = string.Format("INSERT INTO BangLuong VALUES ('{0}', '{1}', '{2}', '{3}')", maBangLuongMoi, nv.MaNhanVien, nv.Luong, nv.NgayNhanLuong.ToString("yyyy-MM-dd"));
             csdl.Chaycodesql(sql);
             return true;
         }
@@ -51,7 +51,7 @@ namespace DAL
         }
         public DataTable TimKiemLuong(string keyword)
         {
-            string sql = string.Format("SELECT * FROM BangLuong WHERE Manv LIKE '%{0}%' ", keyword);
+            string sql = string.Format("SELECT * FROM BangLuong WHERE MaNhanVien LIKE '%{0}%' ", keyword);
             return csdl.GetData(sql);
         }
     }

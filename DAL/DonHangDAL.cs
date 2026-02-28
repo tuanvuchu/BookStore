@@ -16,7 +16,7 @@ namespace DAL
         }
         public int LayMaChiTietTiepTheo()
         {
-            string sql = "SELECT MAX(CAST(MaChiTietDonHang AS INT)) FROM ChiTietDonHang";
+            string sql = "SELECT MAX(CAST(MaChiTietHoaDon AS INT)) FROM ChiTietDonHang";
             int ma = databaseHelper.LayGiaTri(sql);
             int maChiTietDonHang = ma + 1;
             return maChiTietDonHang;
@@ -51,7 +51,7 @@ namespace DAL
         }
         public bool Suasoluong(SanPhamDTO sp)
         {
-            string sql = string.Format("Update SanPham Set SoLuong = '{0}' Where Masp = '{1}'", sp.SoLuong, sp.Masp);
+            string sql = string.Format("Update SanPham Set SoLuong = '{0}' Where MaSanPham = '{1}'", sp.SoLuong, sp.MaSanPham);
             databaseHelper.Chaycodesql(sql);
             return true;
         }

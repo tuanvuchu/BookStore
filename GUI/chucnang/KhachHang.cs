@@ -99,8 +99,8 @@ namespace Doan1
                 {
                     tbMa.Text = "1";
                 }
-                khachHangDTO.MaKH = tbMa.Text;
-                khachHangDTO.TenKH = tbTen.Text;
+                khachHangDTO.MaKhachHang = tbMa.Text;
+                khachHangDTO.HoTen = tbTen.Text;
                 khachHangDTO.DiaChi = tbDiachi.Text;
                 khachHangDTO.SDT = tbSDT.Text;
                 khachHangDTO.Email = tbEmail.Text;
@@ -136,8 +136,8 @@ namespace Doan1
                 MessageBox.Show("Vui lòng chọn khách hàng cần sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            khachHangDTO.MaKH = olodo;
-            khachHangDTO.TenKH = tbTen.Text;
+            khachHangDTO.MaKhachHang = olodo;
+            khachHangDTO.HoTen = tbTen.Text;
             khachHangDTO.DiaChi = tbDiachi.Text;
             khachHangDTO.SDT = tbSDT.Text;
             khachHangDTO.Email = tbEmail.Text;
@@ -178,7 +178,7 @@ namespace Doan1
             DialogResult confirm = MessageBox.Show("Bạn có chắc chắn muốn xóa khách hàng này không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (confirm == DialogResult.Yes)
             {
-                khachHangDTO.MaKH = maKh;
+                khachHangDTO.MaKhachHang = maKh;
                 string result = khachHangBUS.XoanKH(khachHangDTO);
                 if (result == "Xóa khách hàng thành công.")
                 {

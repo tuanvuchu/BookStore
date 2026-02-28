@@ -135,7 +135,7 @@
             // 
             // Column1
             // 
-            this.Column1.DataPropertyName = "Masp";
+            this.Column1.DataPropertyName = "MaSanPham";
             this.Column1.HeaderText = "Mã Sản Phẩm";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
@@ -143,7 +143,7 @@
             // 
             // Column2
             // 
-            this.Column2.DataPropertyName = "Tensp";
+            this.Column2.DataPropertyName = "TenSanPham";
             this.Column2.HeaderText = "Tên SP";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
@@ -167,7 +167,7 @@
             // 
             // Column5
             // 
-            this.Column5.DataPropertyName = "Mancc";
+            this.Column5.DataPropertyName = "MaNhaCungCap";
             this.Column5.HeaderText = "Mã Nhà Cung Cấp";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
@@ -183,7 +183,7 @@
             // 
             // Column7
             // 
-            this.Column7.DataPropertyName = "Hinhanh";
+            this.Column7.DataPropertyName = "HinhAnh";
             this.Column7.HeaderText = "Ảnh";
             this.Column7.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Column7.Name = "Column7";

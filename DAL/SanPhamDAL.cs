@@ -11,12 +11,12 @@ namespace DAL
         public string connectionString = @"Data Source=localhost,1433;Initial Catalog=da1;User ID=sa;Password=MsSQL2022@;";
         public DataTable getData()
         {
-            string sql = "Select Masp, Tensp, Mancc, Gia, MoTa, SoLuong, Hinhanh from SanPham";
+            string sql = "Select MaSanPham, TenSanPham, MaNhaCungCap, Gia, MoTa, SoLuong, HinhAnh from SanPham";
             return csdl.GetData(sql);
         }
         public DataTable Lay()
         {
-            string sql = "Select Masp, Tensp, Mancc, Gia, MoTa, SoLuong, Hinhanh from SanPham";
+            string sql = "Select MaSanPham, TenSanPham, MaNhaCungCap, Gia, MoTa, SoLuong, HinhAnh from SanPham";
             return csdl.GetData(sql);
         }
 
@@ -28,13 +28,13 @@ namespace DAL
 
         public DataTable LayDanhSachMaVaTenSanPham()
         {
-            string sql = "SELECT Masp, Tensp, SoLuong, Gia FROM SanPham";
+            string sql = "SELECT MaSanPham, TenSanPham, SoLuong, Gia FROM SanPham";
             return csdl.GetData(sql);
         }
 
         public int LayMaSanPhamTiepTheo()
         {
-            string sql = "SELECT MAX(CAST (Masp AS INT)) FROM SanPham";
+            string sql = "SELECT MAX(CAST (MaSanPham AS INT)) FROM SanPham";
             int maSanPhamHienTai = csdl.LayGiaTri(sql);
             int maSanPhamMoi = maSanPhamHienTai + 1;
             return maSanPhamMoi;
@@ -42,7 +42,7 @@ namespace DAL
 
         public int kiemtramatrung(string ma)
         {
-            string sql = "Select count(*) from SanPham where Masp='" + ma.Trim() + "'";
+            string sql = "Select count(*) from SanPham where MaSanPham='" + ma.Trim() + "'";
             return csdl.KiemTraMaTrung(ma, sql);
         }
 
@@ -52,18 +52,18 @@ namespace DAL
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string sql = @"INSERT INTO SanPham (Masp, Tensp, Gia, MoTa, Mancc, SoLuong, Hinhanh) 
-                   VALUES (@Masp, @Tensp, @Gia, @MoTa, @Mancc, @SoLuong, @Hinhanh)";
+                string sql = @"INSERT INTO SanPham (MaSanPham, TenSanPham, Gia, MoTa, MaNhaCungCap, SoLuong, HinhAnh) 
+                   VALUES (@MaSanPham, @TenSanPham, @Gia, @MoTa, @MaNhaCungCap, @SoLuong, @HinhAnh)";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@Masp", maSanPhamMoi);
-                    cmd.Parameters.AddWithValue("@Tensp", sp.Tensp);
+                    cmd.Parameters.AddWithValue("@MaSanPham", maSanPhamMoi);
+                    cmd.Parameters.AddWithValue("@TenSanPham", sp.TenSanPham);
                     cmd.Parameters.AddWithValue("@Gia", sp.Gia);
                     cmd.Parameters.AddWithValue("@MoTa", sp.Mota);
-                    cmd.Parameters.AddWithValue("@Mancc", sp.Mancc);
+                    cmd.Parameters.AddWithValue("@MaNhaCungCap", sp.MaNhaCungCap);
                     cmd.Parameters.AddWithValue("@SoLuong", sp.SoLuong);
-                    cmd.Parameters.AddWithValue("@Hinhanh", sp.Hinhanh);
+                    cmd.Parameters.AddWithValue("@HinhAnh", sp.HinhAnh);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -76,23 +76,23 @@ namespace DAL
             {
                 conn.Open();
                 string sql = @"UPDATE SanPham 
-                       SET Tensp = @Tensp, 
+                       SET TenSanPham = @TenSanPham, 
                            Gia = @Gia, 
                            MoTa = @MoTa, 
-                           Mancc = @Mancc, 
+                           MaNhaCungCap = @MaNhaCungCap, 
                            SoLuong = @SoLuong, 
-                           Hinhanh = @Hinhanh 
-                       WHERE Masp = @Masp";
+                           HinhAnh = @HinhAnh 
+                       WHERE MaSanPham = @MaSanPham";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@Tensp", sp.Tensp);
+                    cmd.Parameters.AddWithValue("@TenSanPham", sp.TenSanPham);
                     cmd.Parameters.AddWithValue("@Gia", sp.Gia);
                     cmd.Parameters.AddWithValue("@MoTa", sp.Mota);
-                    cmd.Parameters.AddWithValue("@Mancc", sp.Mancc);
+                    cmd.Parameters.AddWithValue("@MaNhaCungCap", sp.MaNhaCungCap);
                     cmd.Parameters.AddWithValue("@SoLuong", sp.SoLuong);
-                    cmd.Parameters.AddWithValue("@Hinhanh", sp.Hinhanh);
-                    cmd.Parameters.AddWithValue("@Masp", sp.Masp);
+                    cmd.Parameters.AddWithValue("@HinhAnh", sp.HinhAnh);
+                    cmd.Parameters.AddWithValue("@MaSanPham", sp.MaSanPham);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -102,19 +102,19 @@ namespace DAL
 
         public bool Xoanv(SanPhamDTO sp)
         {
-            string sql = string.Format("Delete from SanPham Where Masp = '{0}'", sp.Masp);
+            string sql = string.Format("Delete from SanPham Where MaSanPham = '{0}'", sp.MaSanPham);
             csdl.Chaycodesql(sql);
             return true;
         }
 
         public DataTable TimKiemSP(string keyword)
         {
-            string sql = string.Format("Select * from SanPham Where Masp like '%{0}%' OR Tensp like '%{0}%'", keyword);
+            string sql = string.Format("Select * from SanPham Where MaSanPham like '%{0}%' OR TenSanPham like '%{0}%'", keyword);
             return csdl.GetData(sql);
         }
         public bool Suasoluong(int olodo, int olodo1)
         {
-            string sql1 = string.Format("UPDATE SanPham SET SoLuong =  {0} WHERE Masp = '{1}'", olodo1, olodo);
+            string sql1 = string.Format("UPDATE SanPham SET SoLuong =  {0} WHERE MaSanPham = '{1}'", olodo1, olodo);
             csdl.Chaycodesql(sql1);
             return true;
         }

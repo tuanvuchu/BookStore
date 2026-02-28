@@ -41,22 +41,22 @@ namespace Doan1
         {
             DataTable dataTable = chamCongBUS.GetData1();
             cbbmanhanvien.DataSource = dataTable;
-            cbbmanhanvien.DisplayMember = "Tennv";
-            cbbmanhanvien.ValueMember = "Manv";
+            cbbmanhanvien.DisplayMember = "HoTen";
+            cbbmanhanvien.ValueMember = "MaNhanVien";
             DataTable dt = new DataTable();
-            dt.Columns.Add("ma");
-            dt.Columns.Add("tt");
+            dt.Columns.Add("MaGiamGia");
+            dt.Columns.Add("GiaTri");
             dt.Rows.Add("1", "Giờ hot");
             dt.Rows.Add("2", "Ưu đãi lớn");
             dt.Rows.Add("3", "Giảm giá trong ngày");
             dt.Rows.Add("4", "Mừng đại lễ");
             cbbmagiamgia.DataSource = dt;
-            cbbmagiamgia.DisplayMember = "tt";
-            cbbmagiamgia.ValueMember = "ma";
+            cbbmagiamgia.DisplayMember = "GiaTri";
+            cbbmagiamgia.ValueMember = "MaGiamGia";
             DataTable dataTable3 = donHangBUS.HienKh();
             cbbkh.DataSource = dataTable3;
-            cbbkh.DisplayMember = "TenKH";
-            cbbkh.ValueMember = "MaKH";
+            cbbkh.DisplayMember = "HoTen";
+            cbbkh.ValueMember = "MaKhachHang";
         }
 
         public void MUA_Load(object sender, EventArgs e)
@@ -233,7 +233,7 @@ namespace Doan1
             btThanhToan.Enabled = true;
             them.Enabled = false;
             dgvSanpham.Columns["Column13"].Visible = true;
-            donHangDTO.MaGiamGia = cbbmagiamgia.Text;
+            donHangDTO.MaGiamGia = cbbmagiamgia.SelectedValue.ToString();
             donHangDTO.MaDonHang = tbhoadon.Text;
             int rowIndex = dgvGioHang.CurrentCell.RowIndex;
             donHangDTO.MaSanPham = dgvGioHang.Rows[rowIndex].Cells["Column7"].Value.ToString();
@@ -266,7 +266,7 @@ namespace Doan1
 
             int slmoi = sltrongkho - soluongmua;
             sanPhamDTO.SoLuong = slmoi.ToString();
-            sanPhamDTO.Masp = tbmasp.Text;
+            sanPhamDTO.MaSanPham = tbmasp.Text;
             if (donHangBUS.Suasoluong(sanPhamDTO))
             {
                 MessageBox.Show($"Số lượng sản phẩm trong kho hiện tại là: {slmoi}");

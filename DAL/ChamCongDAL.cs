@@ -42,7 +42,7 @@ namespace DAL
 
         public DataTable TimKiemNhanVien(string keyword, DateTime ngayChamCong)
         {
-            string sql = string.Format("SELECT * FROM ChamCong WHERE Manv LIKE '%{0}%' AND Ngaycc = '{1}'", keyword, ngayChamCong.ToString("yyyy-MM-dd"));
+            string sql = string.Format("SELECT * FROM ChamCong WHERE MaNhanVien LIKE '%{0}%' AND Ngaycc = '{1}'", keyword, ngayChamCong.ToString("yyyy-MM-dd"));
             return cSDL_DAL.GetData(sql);
         }
     }
